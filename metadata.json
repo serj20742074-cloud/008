@@ -1,0 +1,6 @@
+{
+  "name": "Проверки",
+  "description": "Мобильное приложение для планшетов по проведению проверок объектов железнодорожной инфраструктуры и регистрации замечаний",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

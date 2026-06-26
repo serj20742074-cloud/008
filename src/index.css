@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;850&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  #tablet-viewport {
+    background: white !important;
+    padding: 0 !important;
+  }
+  
+  /* Hide header, footer, custom sidebar controls and any non-report modules */
+  header, footer, nav, button, .no-print, #app-footer, select, input, textarea {
+    display: none !important;
+  }
+  
+  /* Ensure the printed container spans full size cleanly */
+  #tablet-main-stage {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .printable-act-overlay {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+  }
+  
+  .printable-page {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Keep printed typography dark and highly legible */
+  h1, h2, h3, h4, th, td, span, p, text {
+    color: #000000 !important;
+  }
+}
