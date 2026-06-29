@@ -1,13 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Проверки инфраструктуры РЖД</title>
+    
+    <!-- PWA Meta tags -->
+    <meta name="theme-color" content="#e21a1a" />
+    <meta name="description" content="Мобильное приложение для планшетов по проведению проверок объектов железнодорожной инфраструктуры и регистрации замечаний" />
+    <link rel="manifest" href="./manifest.json" />
+    
+    <!-- iOS / iPad Web App Capable -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Проверки РЖД" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
   </head>
-  <body>
+  <body class="bg-slate-100 select-none overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // Register the Service Worker relative to current base path (very important for GitHub Pages)
+          const swUrl = './sw.js';
+          navigator.serviceWorker.register(swUrl)
+            .then((registration) => {
+              console.log('ServiceWorker registration successful with scope:', registration.scope);
+              
+              // Automatically check for updates on service worker on load
+              registration.update();
+            })
+            .catch((error) => {
+              console.error('ServiceWorker registration failed:', error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
 
